@@ -2,8 +2,13 @@ package com.example.aiagent;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication
+
+@SpringBootApplication(exclude = {
+        // 取消数据库自动配置，需要使用 PgVector 时把 DataSourceAutoConfiguration.class 删除
+        DataSourceAutoConfiguration.class
+})
 public class AiAgentApplication {
 
     public static void main(String[] args) {
